@@ -52,7 +52,7 @@ err:
 
 static int check_directory() {
 	DIR *dir = opendir("/data");
-	dirent *entry;
+	struct dirent *entry;
 	int found = 0;
 	
 	if(!dir) {
