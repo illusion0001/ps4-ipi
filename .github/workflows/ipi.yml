@@ -43,11 +43,11 @@ jobs:
         cached: ${{ steps.cache-llvm.outputs.cache-hit }}
 
     - name: Build app
-      run: make && ls
+      run: make clean && make
 
     - name: Push package artifact
       uses: actions/upload-artifact@v3
       with:
         name: IPI
-        path: IV0000-KPBR01111_00-AAAAAAAAAAAAAAAA.pkg
-      # if-no-files-found: error
+        path: IV0000-BREW00050_00-IPI0000000000000.pkg
+        if-no-files-found: error
