@@ -13,7 +13,7 @@ LIBS        := -lc -lkernel -lc++ -lSceVideoOut -lSceBgft -lSceAppInstUtil -lSce
 EXTRAFLAGS  := -DGRAPHICS_USES_FONT -I../ps4-zip/src
 
 # Asset and module directories.
-ASSETS 		:= $(wildcard pkg/assets/**/*)
+ASSETS 	:= $(wildcard pkg/assets/**/*)
 LIBMODULES  := $(wildcard pkg/sce_module/*)
 
 # You likely won't need to touch anything below this point.
@@ -33,7 +33,7 @@ COMMONFILES := $(wildcard $(COMMONDIR)/*.cpp)
 OBJS        := $(patsubst $(PROJDIR)/%.c, $(INTDIR)/%.o, $(CFILES)) $(patsubst $(PROJDIR)/%.cpp, $(INTDIR)/%.o, $(CPPFILES)) 
 
 # Define final C/C++ flags
-CFLAGS      := -cc1 -triple x86_64-pc-freebsd-elf -munwind-tables -fuse-init-array -debug-info-kind=limited -debugger-tuning=sce -emit-obj $(EXTRAFLAGS) -isysroot $(TOOLCHAIN) -isystem $(TOOLCHAIN)/include
+CFLAGS      := -cc1 -triple x86_64-pc-freebsd-elf -munwind-tables -debug-info-kind=limited -debugger-tuning=sce -emit-obj $(EXTRAFLAGS) -isysroot $(TOOLCHAIN) -isystem $(TOOLCHAIN)/include
 CXXFLAGS    := $(CFLAGS) -isystem $(TOOLCHAIN)/include/c++/v1 -I$(TOOLCHAIN)/src/lib
 LDFLAGS     := -m elf_x86_64 -pie --script $(TOOLCHAIN)/link.x --eh-frame-hdr -L$(TOOLCHAIN)/lib -L../ps4-zip/ $(LIBS) $(TOOLCHAIN)/lib/crt1.o
 
