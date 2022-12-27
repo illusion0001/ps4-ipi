@@ -72,7 +72,7 @@ static int check_directory() {
 			char errorMsg[100];
 			snprintf(errorMsg, sizeof(errorMsg), "Cannot install:\n%s", entry->d_name);
 			
-			system_notification(errorMsg, "default_icon_download");
+			system_notification(errorMsg);
 		}
 		
 		found++;
