@@ -26,7 +26,7 @@ int load_modules(void) {
 	}
 	
 	sceKernelDlsym(jbc_handle, "Jailbreak", (void**)&jailbreak);
-	if(jailbreak == nullptr) {
+	if(jailbreak == NULL) {
 		printf("Failed to resolve symbol: %s\n", "Jailbreak");
 		goto err;
 	}
